@@ -1,0 +1,23 @@
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.card-subtitle {
+    font-size: 2em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.card-text {
+    font-size: 1.3em;
+    color: #666;
+}
