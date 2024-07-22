@@ -12,15 +12,9 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Service
 @RequiredArgsConstructor
@@ -28,10 +22,8 @@ public class AttachmentServiceImpl implements AttachmentService {
 
     private final AttachmentRepository attachmentRepository;
 
-    private final BookRepository bookRepository;
-
     @Override
-    public ApiResponse upload(MultipartFile multipartFile   ) {
+    public ApiResponse upload(MultipartFile multipartFile) {
         assert multipartFile != null;
         try{
             Attachment attachment = Attachment.builder()

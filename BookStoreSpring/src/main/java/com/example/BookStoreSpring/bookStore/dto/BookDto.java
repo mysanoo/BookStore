@@ -25,4 +25,5 @@ public class BookDto {
     private BigDecimal price;
     @Min(value = 0, message = "Price must be a non-negative number")
     private Integer quantity;
+    private Attachment attachment;
 }

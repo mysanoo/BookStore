@@ -1,5 +1,6 @@
 package com.example.BookStoreSpring.bookStore.service.impl;
 
+
 import com.example.BookStoreSpring.bookStore.entity.Book;
 import com.example.BookStoreSpring.bookStore.repository.BookRepository;
 import com.example.BookStoreSpring.bookStore.service.BookService;
@@ -25,6 +26,7 @@ public class BookServiceImpl implements BookService {
                 .description(bookCreateDto.getDescription())
                 .quantity(bookCreateDto.getQuantity())
                 .price(bookCreateDto.getPrice())
+                .bookImage(bookCreateDto.getAttachment())
                 .build();
         bookRepository.save(book);
         return ApiResponse.builder().message("success").success(true).data(book).build();

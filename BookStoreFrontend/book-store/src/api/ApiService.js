@@ -57,10 +57,12 @@ export default class ApiService{
         });
     }
 
-     static async addBook(bookDetails){
-        return await AxiosInstance.post(`/api/book`, bookDetails, 
+     static async addBook(bookDto){
+        return await AxiosInstance.post(`/api/book`, bookDto,
             {
-                headers: this.getHeader()
+                headers: {
+                    ...this.getHeader()
+                }   
             });
      }
 
@@ -85,7 +87,7 @@ export default class ApiService{
 
      /** --ATTACHMENT-- */
 
-     static async upload(attachment, bookDetails){
+     static async upload(attachment){
         return await AxiosInstance.post(`/api/attachment/upload`, attachment, {
             headers: {
                 ...this.getHeader(),

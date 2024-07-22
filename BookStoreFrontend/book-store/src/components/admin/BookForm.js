@@ -11,8 +11,7 @@ const BookForm = ({ book, handleSubmit, upload }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(file);
-        const updated = {
+    const book = {
       title : title,
       author : author,
       price : price,
@@ -21,7 +20,7 @@ const BookForm = ({ book, handleSubmit, upload }) => {
 
     const formData = new FormData;
     formData.append("file", file);
-    handleSubmit(formData, updated);
+    handleSubmit(formData, book);
   }
 
 
@@ -33,6 +32,7 @@ const BookForm = ({ book, handleSubmit, upload }) => {
           type="file"
           placeholder="Upload book"
           onChange={(e) => setFile(e.target.files[0])}
+          // value={file}
         />
       </Form.Group>
 

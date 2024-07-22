@@ -2,6 +2,7 @@ package com.example.BookStoreSpring.bookStore.service;
 
 import com.example.BookStoreSpring.bookStore.dto.ApiResponse;
 import com.example.BookStoreSpring.bookStore.dto.BookDto;
+import com.example.BookStoreSpring.bookStore.entity.Attachment;
 
 public interface BookService {
 

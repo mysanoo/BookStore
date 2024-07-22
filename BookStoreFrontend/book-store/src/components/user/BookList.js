@@ -43,6 +43,8 @@ const BookList = () => {
     getBooks();
   }, []);
 
+  const path = "C:/Users/User/Desktop/G19/PracticeNapa/BookStore/BookStoreFrontend/book-store/assert/";
+
   const search = () => {
     ApiService.search(title)
     .then((response) => {
@@ -71,19 +73,33 @@ const BookList = () => {
       </Form.Group>
       <Button onClick={search} className="mt-2">submit</Button>
     </Form>
-    
+    <Link to="/add" className="btn btn-secondary mb-3">Add</Link>
     </div>
       
       <Row>
         {books.map((book) => (
           <Col sm="4" key={book.id} className="mb-4">
             <Card>
-              <CardImg
+              {book.bookImage != null ? (
+                <div>
+                {/* {path = `C:/Users/User/Desktop/G19/PracticeNapa/BookStore/BookStoreFrontend/book-store/assert/${encodeURIComponent(book.bookImage.name)}`}; */}
+                <CardImg
                 top
                 width="100%"
-                src={book.coverImage}
+                src="../../../assert/image_2023-10-09_18-04-39.png"
+                alt="zssss"
+              />
+                </div>
+                
+              ) : (
+                <CardImg
+                top
+                width="100%"
+                src={"/public/image_2023-10-09_18-04-39.png"}
                 alt={book.title}
               />
+              )}
+              
               <CardBody className="">
                 <CardTitle tag="h1">
                   <strong className="text-muted">Title : </strong>
@@ -100,7 +116,6 @@ const BookList = () => {
               </CardBody>
               {role == "ROLE_ADMIN" ? (
                 <CardFooter>
-                <Link to="/add" className="btn btn-secondary d-block">Add</Link>
                 <Link to={`/delete/${book.id}`} className="btn btn-secondary d-block">Delete</Link>
                 <Link to={`/edit/${book.id}`} className="btn btn-secondary d-block">Update</Link>
                 <Link to="/users" className="btn btn-secondary d-block">Users</Link>
@@ -117,6 +132,7 @@ const BookList = () => {
         ))}
       </Row>
       <Button onClick={storage}>Storage</Button>
+      <img src="/public/image_2023-10-09_18-04-39.png" alt="vhjghc" />
     </Container>
   );
 };
